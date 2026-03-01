@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import "../styles/home.css";
 import type { Metadata } from "next";
 import ScrollProgress from "./scrollProgress";
+import ChatBot from "./components/ChatBot";
 
 export const metadata: Metadata = {
   title: "Sammamish Circle",
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body>
         <ScrollProgress />
         {children}
+        <ChatBot />
         </body>
     </html>
   );
