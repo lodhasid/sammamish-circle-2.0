@@ -1,43 +1,8 @@
-"use client";
 import * as React from 'react';
-import { useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
-import { supabase } from '@/utils/supabase'; // Ensure this path matches your project structure
 import Header from "../header";
 import Footer from "../footer";
 
 export default function RegisterPage() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const email = searchParams.get('email') || "";
-
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleSignUp = async () => {
-    if (!password || password !== confirmPassword) {
-      alert("Passwords do not match or are empty.");
-      return;
-    }
-
-    setLoading(true);
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
-      },
-    });
-
-    if (error) {
-      alert(error.message);
-    } else {
-      alert("Success! Check your email for the confirmation link.");
-      router.push('/auth');
-    }
-    setLoading(false);
-  };
   return (
     <div className="register-page">
       <style>{`
@@ -342,40 +307,28 @@ export default function RegisterPage() {
 
       {/* Main Content */}
       <main className="main-content">
-        <div className="auth-card-body">
-  {/* Email display so user knows what they are registering for */}
-  <p style={{ fontSize: '14px', marginBottom: '10px', color: 'rgba(255,255,255,0.5)' }}>
-    Registering for: {email}
-  </p>
+        <div className="auth-card">
+          <div className="auth-card-header">
+            <h1 className="auth-card-title">Registering new account</h1>
+          </div>
+          <div className="auth-card-body">
+            <input 
+              type="password" 
+              className="input-field" 
+              placeholder="Create password"
+            />
+            
+            <input 
+              type="password" 
+              className="input-field" 
+              placeholder="Re-enter password"
+            />
 
-  <input 
-    type="password" 
-    className="input-field" 
-    placeholder="Create password"
-    value={password}
-    onChange={(e) => setPassword(e.target.value)}
-  />
-  
-  <input 
-    type="password" 
-    className="input-field" 
-    placeholder="Re-enter password"
-    value={confirmPassword}
-    onChange={(e) => setConfirmPassword(e.target.value)}
-  />
+            <button className="primary-button">Complete</button>
 
-  <button 
-    className="primary-button" 
-    onClick={handleSignUp}
-    disabled={loading}
-  >
-    {loading ? "Processing..." : "Complete"}
-  </button>
-
-  <p className="link-text" onClick={() => router.push('/auth')}>
-    Already have an account?
-  </p>
-</div>
+            <p className="link-text">Already have an account?</p>
+          </div>
+        </div>
       </main>
 
       <Footer />

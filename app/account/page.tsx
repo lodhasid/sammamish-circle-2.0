@@ -10,13 +10,11 @@ export default function SignUpPage() {
 const router = useRouter();
 
 const handleSignUp = () => {
-  // Regex to ensure the email is actually an email format
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-  if (emailRegex.test(email)) {
+  if (email) {
+    // This sends the email to the /register page as a "search parameter"
     router.push(`/register?email=${encodeURIComponent(email)}`);
   } else {
-    alert("Please enter a valid email address to proceed with the Protocol.");
+    alert("Please enter a valid email to continue.");
   }
 };
 
@@ -27,12 +25,6 @@ const handleLogin = () => {
   } else {
     // If they haven't typed anything, just go to the login page
     router.push('/login');
-  }
-};
-
-const handleKeyDown = (e: React.KeyboardEvent) => {
-  if (e.key === 'Enter') {
-    handleSignUp();
   }
 };
   return (
@@ -119,7 +111,7 @@ const handleKeyDown = (e: React.KeyboardEvent) => {
         .auth-card-title {
           font-size: 20px;
           font-weight: 600;
-          color: #ffffff;
+          color: #FFF4D2;
           line-height: 100px;
         }
 
@@ -389,7 +381,7 @@ const handleKeyDown = (e: React.KeyboardEvent) => {
             
             <input 
   value={email}
-  onChange={(e) => setEmail(e.target.value)} // Trigger sign up on Enter key
+  onChange={(e) => setEmail(e.target.value)}
   type="email" 
   className="input-field" 
   placeholder="Enter your email address"

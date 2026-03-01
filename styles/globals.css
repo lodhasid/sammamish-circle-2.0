@@ -8,24 +8,6 @@
   box-sizing: border-box;
 }
 
-/* Forces the background to match your design on every page */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  /* Match the top color of your gradient to hide any "bounce" or gaps */
-  background-color: #142727; 
-  overflow-x: hidden;
-}
-
-/* Ensures Next.js root div expands fully */
-#__next, [data-nextjs-scroll-focus-boundary] {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -114,7 +96,7 @@ button {
 
 .logo-text {
   color: #FFF;
-  font-family: 'Source Serif Pro', 'Inter';
+  font-family: 'Source Serif Pro', 'Inter', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 20px;

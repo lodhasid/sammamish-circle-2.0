@@ -81,35 +81,6 @@ export default function ReferencesPage() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="references-title">References</h1>
-          <motion.section
-          className="credits-section"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <h2 className="credits-title">Code Stack</h2>
-          <p className="text-lg leading-relaxed text-black">
-  Our platform is built using modern, full-stack architecture centered around 
-  <span className="font-bold text-[#243142]"> Next.js </span> and 
-  <span className="font-bold text-[#243142]"> React </span> to deliver a high-speed, 
-  responsive user experience. We utilize 
-  <span className="font-bold text-[#243142]"> Tailwind CSS </span> for precise, 
-  utility-based styling and 
-  <span className="font-bold text-[#243142]"> Framer Motion </span> to apply fluid animations that 
-  elevate the professional feel of the interface. The backbone of our data management is 
-  <span className="font-bold text-[#243142]"> Supabase</span>, which provides 
-  enterprise-grade User Authentication and a scalable database, while 
-  <span className="font-bold text-[#243142]"> Leaflet </span> integrates interactive 
-  mapping capabilities. Finished with optimized typography via the 
-  <span className="font-bold text-[#243142]"> Google Fonts API</span>, this stack ensures 
-  a stable, secure, and visually cohesive environment designed for long-term growth. 
-  Every component and visual element was pre-visualized in 
-  <span className="font-bold text-[#243142]"> Figma </span> and refined through 
-  <span className="font-bold text-[#243142]"> Photoshop </span> and 
-  <span className="font-bold text-[#243142]"> Illustrator</span>, ensuring that the final build is perfect.
-</p>
-        </motion.section>
           <h3 className="references-images-used">Images Used</h3>
           <p className="references-subtitle">
             All images used are 100% copyright-free
@@ -152,7 +123,8 @@ export default function ReferencesPage() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <h2 className="credits-title">Credits</h2>
-            <p className="text-lg leading-relaxed text-black">All images are sourced from{" "}
+          <p className="credits-text">
+            All images are sourced from{" "}
             <a
               href="https://unsplash.com"
               target="_blank"
